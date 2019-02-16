@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="vue.js"></script>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<!--===================================-->
+<div id="app">
+<input type="text" v-on:input='changeTitle'><br/>
+<span v-once>{{title}} </span><br/>
+<hr>
+<p v-html="htmlTag"></p>
+<hr>
+{{sayHello()}}
+<br/>
+<a v-bind:href='link' target='_blank'>Google</a>
+</div>
+<hr>
+<!--============================================-->
+<div id="counter">
+<button v-on:click="increment(2)">Count</button><br/>
+{{counter * 2 > 10 ? 'Greater than 10' : 'Smaller than 10'}}
+<button v-on:click="counter++">Count</button><br/>
+{{counter}}
+<input type="text" v-on:keyup.enter.space='alertMe'> <!--Enter or space button fire alert-->
+</div>
+<!--============================-->
+<div id="dynamicCSS">
+<div class='container' :class="divClasses" @click="attachedRed = !attachedRed"></div>
+<div class='container' :class="color"></div>
+<div class='container' :style='myStyle'></div>
+<input type="text" v-model= 'color'>
+<input type="text" v-model= 'width'>
+</div>
+</body>
+<script src="index.js"></script>
+</html>
+
+<!--v-on:mousemove.stop ...stops any event of parent element when mouse moves on this element like stopPropagation()-->
+<!--v-on:mousemove.prevent ...prevent any event of this element like e.preventDefault()-->
+<!--v-model is two-way binding, can be used like <input type='text' v-model="name">, whenever you change inout text,it updates name-->
