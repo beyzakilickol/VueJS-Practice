@@ -25,13 +25,24 @@
 {{counter}}
 <input type="text" v-on:keyup.enter.space='alertMe'> <!--Enter or space button fire alert-->
 </div>
-<!--============================-->
+<!--=============Dynamic CSS===============-->
 <div id="dynamicCSS">
 <div class='container' :class="divClasses" @click="attachedRed = !attachedRed"></div>
 <div class='container' :class="color"></div>
 <div class='container' :style='myStyle'></div>
 <input type="text" v-model= 'color'>
 <input type="text" v-model= 'width'>
+</div>
+<!--===========Conditions=============-->
+<div id="conditions">
+<p v-if='show'>Show me!</p> <!-- v-show="show" gives diaplay:none feature instead of removing whole element-->
+<p v-else>I override show me text!</p>
+<button @click="show=!show">Switch</button>
+<ul>
+<li v-for="(each,index) in ingredients" :key="each">{{each}} - ({{index+1}})</li>
+</ul>
+<button @click="ingredients.push('spices')">Add ingredient</button>
+<span v-for="n in 30">{{n}}</span>
 </div>
 </body>
 <script src="index.js"></script>

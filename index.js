@@ -52,3 +52,10 @@ new Vue({
         }
     }
 })
+new Vue({
+    el:'#conditions',
+    data:{
+        show: true,
+        ingredients: ['meat', 'salt', 'parsley', 'cucumber']
+    }
+})
